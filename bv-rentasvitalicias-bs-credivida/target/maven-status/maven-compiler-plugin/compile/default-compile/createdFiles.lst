@@ -1,0 +1,8 @@
+cl\bicevida\rentasvitalicias\dto\Message.class
+cl\bicevida\rentasvitalicias\dao\mapper\CredividaMapper.class
+cl\bicevida\rentasvitalicias\dto\Fault.class
+cl\bicevida\util\LogExecutionTime.class
+cl\bicevida\rentasvitalicias\dto\CredividaDTO.class
+cl\bicevida\rentasvitalicias\controller\CredividaController.class
+cl\bicevida\rentasvitalicias\dao\CredividaDAO.class
+cl\bicevida\rentasvitalicias\dao\impl\CredividaDAOImpl.class

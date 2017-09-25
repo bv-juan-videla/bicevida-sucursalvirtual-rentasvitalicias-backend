@@ -1,0 +1,8 @@
+cl\bicevida\rentasvitalicias\dao\impl\EmailDAOImpl.class
+cl\bicevida\rentasvitalicias\dto\Message.class
+cl\bicevida\rentasvitalicias\dto\EmailDTO.class
+cl\bicevida\rentasvitalicias\dao\EmailDAO.class
+cl\bicevida\rentasvitalicias\dto\Fault.class
+cl\bicevida\util\LogExecutionTime.class
+cl\bicevida\rentasvitalicias\dao\mapper\EmailMapper.class
+cl\bicevida\rentasvitalicias\controller\EmailController.class
