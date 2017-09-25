@@ -56,7 +56,7 @@ public class RentasAsignacionFamiliarDAOImpl implements RentasAsignacionFamiliar
 		
 		System.out.println("<<<< PKG parametros modificados PKG >>>>");
 		
-		String sql = "PKG_SUCURSAL_VIRTUAL.PROC_ASIGNACION_FAMILIAR";
+		String sql = "PKG_SUCURSAL_VIRTUAL.PROC_ULTIMAS_A_FAMILIARES";
 		
 		try{
 			SimpleJdbcCall procedureParametersCall = new SimpleJdbcCall(dataSource);
