@@ -54,6 +54,8 @@ public class RentasDosUltLiquidacionesDAOImpl implements RentasDosUltLiquidacion
 		
 		//List<RentasUltLiquidacionesDTO> resultList = null;
 		//RentasUltLiquidacionesDTO response = null;
+		String xrut = rut.toUpperCase();
+
 		List<RentasDosUltLiquidacionesDTO> response = null;
 		
 		System.out.println("<<<< PKG parametros modificados PKG >>>>");
@@ -69,7 +71,7 @@ public class RentasDosUltLiquidacionesDAOImpl implements RentasDosUltLiquidacion
 				new SqlParameter("vrut", Types.VARCHAR),
 				new SqlOutParameter("result", OracleTypes.CURSOR, new RentasDosUltLiquidacionesMapper()));
 			MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
-			mapSqlParameterSource.addValue("vrut", rut);
+			mapSqlParameterSource.addValue("vrut", xrut);
 
 			System.out.println("Carga de PKG");
 			//executionTime.startLogin("CreditosDAO.obtenerDatosCreditos");

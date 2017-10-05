@@ -22,6 +22,8 @@ public class RentasDosUltLiquidacionesDTO implements Serializable {
 	private int numero_liquidacion;
 	private String mes_proceso;
 	private int pension_liquida;
+	private int numero_pensiones_pagadas;
+	
 	public String getRut() {
 		return rut;
 	}
@@ -46,6 +48,11 @@ public class RentasDosUltLiquidacionesDTO implements Serializable {
 	public void setPension_liquida(int pension_liquida) {
 		this.pension_liquida = pension_liquida;
 	}
-	
+	public int getNumero_pensiones_pagadas() {
+		return numero_pensiones_pagadas;
+	}
+	public void setNumero_pensiones_pagadas(int numero_pensiones_pagadas) {
+		this.numero_pensiones_pagadas = numero_pensiones_pagadas;
+	}	
 		
 }

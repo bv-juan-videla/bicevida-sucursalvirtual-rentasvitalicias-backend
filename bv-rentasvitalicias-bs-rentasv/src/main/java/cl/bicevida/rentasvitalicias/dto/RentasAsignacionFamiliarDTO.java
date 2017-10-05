@@ -1,6 +1,10 @@
 package cl.bicevida.rentasvitalicias.dto;
 
 import java.io.Serializable;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 //import java.util.List;
 
 //import com.fasterxml.jackson.annotation.JsonFormat;
@@ -20,8 +24,11 @@ public class RentasAsignacionFamiliarDTO implements Serializable {
 	
 	private String poliza;
 	private String mes_proceso;
-	private String ultimo_pago;
-	private String inicio_pago_asignacion;
+	@JsonFormat(timezone = "Chile/Continental", shape=Shape.NUMBER)
+	private Date ultimo_pago;
+	//private String ultimo_pago;
+	@JsonFormat(timezone = "Chile/Continental", shape=Shape.NUMBER)
+	private Date inicio_pago_asignacion;
 	private String rut; 
 	private String nombre;
 	private String parentesco;
@@ -42,16 +49,17 @@ public class RentasAsignacionFamiliarDTO implements Serializable {
 	public void setMes_proceso(String mes_proceso) {
 		this.mes_proceso = mes_proceso;
 	}
-	public String getUltimo_pago() {
+	
+	public Date getUltimo_pago() {
 		return ultimo_pago;
 	}
-	public void setUltimo_pago(String ultimo_pago) {
+	public void setUltimo_pago(Date ultimo_pago) {
 		this.ultimo_pago = ultimo_pago;
 	}
-	public String getInicio_pago_asignacion() {
+	public Date getInicio_pago_asignacion() {
 		return inicio_pago_asignacion;
 	}
-	public void setInicio_pago_asignacion(String inicio_pago_asignacion) {
+	public void setInicio_pago_asignacion(Date inicio_pago_asignacion) {
 		this.inicio_pago_asignacion = inicio_pago_asignacion;
 	}
 	public String getRut() {

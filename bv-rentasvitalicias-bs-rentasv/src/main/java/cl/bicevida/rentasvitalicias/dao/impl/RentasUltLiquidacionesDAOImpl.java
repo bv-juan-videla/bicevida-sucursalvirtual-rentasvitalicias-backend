@@ -52,6 +52,8 @@ public class RentasUltLiquidacionesDAOImpl implements RentasUltLiquidacionesDAO{
 		//log.info("obtenerDatosCliente");
 		System.out.println("RentasUltLiquidacionesDTO obtenerDatosRentasUltLiquidaciones");
 		
+		String xrut = rut.toUpperCase();
+		
 		//List<RentasUltLiquidacionesDTO> resultList = null;
 		//RentasUltLiquidacionesDTO response = null;
 		List<RentasUltLiquidacionesDTO> response = null;
@@ -75,7 +77,7 @@ public class RentasUltLiquidacionesDAOImpl implements RentasUltLiquidacionesDAO{
 				new SqlParameter("vhasta", Types.VARCHAR),
 				new SqlOutParameter("result", OracleTypes.CURSOR, new RentasUltLiquidacionesMapper()));
 			MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
-			mapSqlParameterSource.addValue("vrut", rut);
+			mapSqlParameterSource.addValue("vrut", xrut);
 			mapSqlParameterSource.addValue("vdesde", desde);
 			mapSqlParameterSource.addValue("vhasta", hasta);
 

@@ -2,6 +2,10 @@ package cl.bicevida.rentasvitalicias.dto;
 
 import java.io.Serializable;
 //import java.util.List;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
 //import com.fasterxml.jackson.annotation.JsonFormat;
 //import com.fasterxml.jackson.annotation.JsonFormat.Shape;
@@ -29,8 +33,10 @@ public class RentasVDTO implements Serializable {
 	private String modalidad_renta;
 	private int liquido;
 	private String mes_proceso;
-	private String ultimo_pago_realizado;
-	private String proximo_pago;
+	@JsonFormat(timezone = "Chile/Continental", shape=Shape.NUMBER)
+	private Date ultimo_pago_realizado;
+	@JsonFormat(timezone = "Chile/Continental", shape=Shape.NUMBER)
+	private Date proximo_pago;
 	private double pension_mensual;
 	private int codigo_via_pago;
 	private String via_pago;
@@ -101,17 +107,17 @@ public class RentasVDTO implements Serializable {
 	}
 	public void setMes_proceso(String mes_proceso) {
 		this.mes_proceso = mes_proceso;
-	}
-	public String getUltimo_pago_realizado() {
+	}	
+	public Date getUltimo_pago_realizado() {
 		return ultimo_pago_realizado;
 	}
-	public void setUltimo_pago_realizado(String ultimo_pago_realizado) {
+	public void setUltimo_pago_realizado(Date ultimo_pago_realizado) {
 		this.ultimo_pago_realizado = ultimo_pago_realizado;
 	}
-	public String getProximo_pago() {
+	public Date getProximo_pago() {
 		return proximo_pago;
 	}
-	public void setProximo_pago(String proximo_pago) {
+	public void setProximo_pago(Date proximo_pago) {
 		this.proximo_pago = proximo_pago;
 	}
 	public double getPension_mensual() {

@@ -16,8 +16,8 @@ public class RentasAsignacionFamiliarMapper implements RowMapper<RentasAsignacio
 		RentasAsignacionFamiliarDTO response = new RentasAsignacionFamiliarDTO();
 		response.setPoliza(rs.getString("poliza"));
 		response.setMes_proceso(rs.getString("mes_proceso"));
-		response.setUltimo_pago(rs.getString("ultimo_pago"));
-		response.setInicio_pago_asignacion(rs.getString("inicio_pago_asignacion"));
+		response.setUltimo_pago(rs.getDate("ultimo_pago"));
+		response.setInicio_pago_asignacion(rs.getDate("inicio_pago_asignacion"));
 		response.setRut(rs.getString("rut"));
 		response.setNombre(rs.getString("nombre"));
 		response.setParentesco(rs.getString("parentesco"));

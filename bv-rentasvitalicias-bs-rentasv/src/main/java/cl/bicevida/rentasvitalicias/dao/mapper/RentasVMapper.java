@@ -25,8 +25,8 @@ public class RentasVMapper implements RowMapper<RentasVDTO> {
 		response.setModalidad_renta(rs.getString("modalidad_renta"));
 		response.setLiquido(rs.getInt("liquido"));
 		response.setMes_proceso(rs.getString("mes_proceso"));
-		response.setUltimo_pago_realizado(rs.getString("ultimo_pago_realizado"));
-		response.setProximo_pago(rs.getString("proximo_pago"));
+		response.setUltimo_pago_realizado(rs.getDate("ultimo_pago_realizado"));
+		response.setProximo_pago(rs.getDate("proximo_pago"));
 		response.setPension_mensual(rs.getInt("pension_mensual"));
 		response.setCodigo_via_pago(rs.getInt("codigo_via_pago"));
 		response.setVia_pago(rs.getString("via_pago"));

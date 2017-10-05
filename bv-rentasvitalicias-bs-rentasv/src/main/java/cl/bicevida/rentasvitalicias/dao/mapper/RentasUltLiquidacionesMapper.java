@@ -18,6 +18,7 @@ public class RentasUltLiquidacionesMapper implements RowMapper<RentasUltLiquidac
 		response.setNumero_liquidacion(rs.getInt("numero_liquidacion"));
 		response.setMes_proceso(rs.getString("mes_proceso"));
 		response.setPension_liquida(rs.getInt("pension_liquida"));
+		response.setNumero_pensiones_pagadas(rs.getInt("numero_pensiones_pagadas"));
 		
 		return response;
 	}
