@@ -54,7 +54,7 @@ public class CredividaDAOImpl implements CredividaDAO{
 		
 		List<CredividaDTO> resultList = null;
 		CredividaDTO response = null;
-		String sql = "PKG_SUCURSAL_VIRTUAL_CRV.OBTIENE_NRO_CUENTA";
+		String sql = "PKG_SUCURSAL_VIRTUAL_CRV.OBTIENE_NRO_CREDIVIDA";
         //int vestado = 0;
         //int vnumcuenta = 0;
         //String vglosa= " ";

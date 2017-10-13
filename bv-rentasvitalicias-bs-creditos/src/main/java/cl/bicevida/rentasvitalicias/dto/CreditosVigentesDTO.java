@@ -42,6 +42,7 @@ public class CreditosVigentesDTO implements Serializable {
 	@JsonFormat(timezone = "Chile/Continental", shape=Shape.STRING)	
 	private Date termino_credito;
 	private String cuotas_pagadas;
+	private int idsolicitud;
 	
 	public int getIdcredito() {
 		return idcredito;
@@ -168,6 +169,12 @@ public class CreditosVigentesDTO implements Serializable {
 	}
 	public void setCuotas_pagadas(String cuotas_pagadas) {
 		this.cuotas_pagadas = cuotas_pagadas;
+	}
+	public int getIdsolicitud() {
+		return idsolicitud;
+	}
+	public void setIdsolicitud(int idsolicitud) {
+		this.idsolicitud = idsolicitud;
 	}
 		
 }

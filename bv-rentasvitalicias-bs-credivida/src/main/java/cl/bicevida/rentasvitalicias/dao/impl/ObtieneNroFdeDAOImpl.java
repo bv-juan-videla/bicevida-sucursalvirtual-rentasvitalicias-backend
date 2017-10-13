@@ -16,24 +16,24 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
-import cl.bicevida.rentasvitalicias.dao.RentasInicioLiquidacionDAO;
-import cl.bicevida.rentasvitalicias.dao.mapper.RentasInicioLiquidacionMapper;
-import cl.bicevida.rentasvitalicias.dto.RentasInicioLiquidacionDTO;
+import cl.bicevida.rentasvitalicias.dao.ObtieneNroFdeDAO;
+import cl.bicevida.rentasvitalicias.dao.mapper.ObtieneNroFdeMapper;
+import cl.bicevida.rentasvitalicias.dto.ObtieneNroFdeDTO;
 import lombok.extern.log4j.Log4j;
 import oracle.jdbc.OracleTypes;
 
 @Log4j
 @Repository
-public class RentasInicioLiquidacionDAOImpl implements RentasInicioLiquidacionDAO {
+public class ObtieneNroFdeDAOImpl implements ObtieneNroFdeDAO{
 
 	@Autowired
-	@Qualifier("dsRentasV")
+	@Qualifier("dsCredivida")
 	private DataSource dataSource;
 	
 	//private LogExecutionTime executionTime;
 	//private Logger log;
 	
-	public RentasInicioLiquidacionDAOImpl(){
+	public ObtieneNroFdeDAOImpl(){
 		super();
 	}
 	
@@ -45,20 +45,14 @@ public class RentasInicioLiquidacionDAOImpl implements RentasInicioLiquidacionDA
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<RentasInicioLiquidacionDTO> obtenerDatosRentasInicioLiquidacion(String rut) {
+	public ObtieneNroFdeDTO obtenerNroFDE(Integer rut) {
 		
 		//log.info("obtenerDatosCliente");
-		System.out.println("RentasInicioLiquidacionDTO obtenerDatosRentasInicioLiquidacion");
+		System.out.println("ObtieneNroFdeDTO obtenerNroFDE");
 		
-		String xrut = rut.toUpperCase();
-		
-		//List<RentasUltLiquidacionesDTO> resultList = null;
-		//RentasUltLiquidacionesDTO response = null;
-		List<RentasInicioLiquidacionDTO> response = null;
-		
-		System.out.println("<<<< PKG parametros modificados PKG >>>>");
-		
-		String sql = "PKG_SUCURSAL_VIRTUAL.PROC_ULTIMA_LIQUIDACION";
+		List<ObtieneNroFdeDTO> resultList = null;
+		ObtieneNroFdeDTO response = null;
+		String sql = "PKG_SUCURSAL_VIRTUAL_CRV.OBTIENE_NRO_FDE";
 		
 		try{
 			SimpleJdbcCall procedureParametersCall = new SimpleJdbcCall(dataSource);
@@ -66,34 +60,27 @@ public class RentasInicioLiquidacionDAOImpl implements RentasInicioLiquidacionDA
 			.withProcedureName(sql)
 			.withoutProcedureColumnMetaDataAccess()
 			.declareParameters(
-				new SqlParameter("vrut", Types.VARCHAR),
-				new SqlOutParameter("result", OracleTypes.CURSOR, new RentasInicioLiquidacionMapper()));
+				new SqlParameter("vrut", Types.NUMERIC),
+				new SqlOutParameter("result", OracleTypes.CURSOR, new ObtieneNroFdeMapper()));
 			MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
-			mapSqlParameterSource.addValue("vrut", xrut);
+			mapSqlParameterSource.addValue("vrut", rut);
 
 			System.out.println("Carga de PKG");
-			//executionTime.startLogin("CreditosDAO.obtenerDatosCreditos");
+			//executionTime.startLogin("CredividaDAO.obtenerDatosCredivida");
 			Map<String, Object> result = procedureParametersCall.execute(mapSqlParameterSource);
 			System.out.println("procedureParametersCall de PKG");
 
-			
-			//executionTime.stopLogin("CreditosDAO.obtenerDatosCreditos");
 			System.out.println("Paso de PKG");
 			
-			response = (List<RentasInicioLiquidacionDTO>) result.get("result");
-			
-			/* resultList = (List<RentasUltLiquidacionesDTO>) result.get("result");
+			resultList = (List<ObtieneNroFdeDTO>) result.get("result");
 			if (!resultList.isEmpty()) {
-				for (int x=0;x<resultList.size();x++ ){
-					response = resultList.get(x);
-				}
-			}*/
+				response = resultList.get(0);
+			}
 			
 		}catch(EmptyResultDataAccessException e){
 			//log.info("obtenerDatosCliente: The result query is empty");
-			System.out.println("obtenerDatosRentasUltimaLiquidación: The result query is empty");
+			System.out.println("obtenerDatosCredivida: The result query is empty");
 		}
 		return response;
 	}
-	
 }

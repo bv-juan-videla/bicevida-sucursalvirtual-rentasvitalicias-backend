@@ -2,7 +2,6 @@ package cl.bicevida.rentasvitalicias.dao.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-//import java.util.Date;
 
 import org.springframework.jdbc.core.RowMapper;
 
@@ -34,7 +33,8 @@ public class CreditosVigentesMapper implements RowMapper<CreditosVigentesDTO> {
 		response.setVia_pago(rs.getString("via_pago"));
 		response.setProducto(rs.getString("producto"));
 		response.setTermino_credito(rs.getDate("termino_credito"));
-		response.setCuotas_pagadas(rs.getString("cuotas_pagadas"));		
+		response.setCuotas_pagadas(rs.getString("cuotas_pagadas"));
+		response.setIdsolicitud(rs.getInt("idsolicitud"));
 		return response;
 	}
 
